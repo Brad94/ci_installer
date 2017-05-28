@@ -8,7 +8,7 @@ cd vagrant_data/ || exit
 sudo apt-get update -y
 
 apt-get install -y git
-echo "Finished Git" >> /var/log/ci.log
+echo "Finished Git." >> /var/log/ci.log
 
 if [ -f "/opt/vagrant_data/jenkins_2.7.4_all.deb" ]
 then
@@ -30,7 +30,7 @@ sudo ssh-keygen << EOF
 EOF
 
 sudo service jenkins start
-echo "Finished Jenkins" >> /var/log/ci.log
+echo "Finished Jenkins." >> /var/log/ci.log
 
 if [ -f "/opt/vagrant_data/java.tar.gz" ]
 then
@@ -43,7 +43,7 @@ sudo tar zxvf jdk-8u131-linux-x64.tar.gz
 sudo update-alternatives --install /usr/bin/java java /opt/vagrant_data/jdk1.8.0_131/bin/java 100
 sudo update-alternatives --install /usr/bin/javac javac /opt/vagrant_data/jdk1.8.0_131/bin/javac 100
 java -version
-echo "Finished Java" >> /var/log/ci.log
+echo "Finished Java." >> /var/log/ci.log
 
 if [ -f "/opt/vagrant_data/maven.tar.gz" ]
 then
@@ -55,7 +55,7 @@ fi
 sudo tar zxvf apache-maven-3.5.0-bin.tar.gz
 sudo update-alternatives --install /usr/bin/mvn mvn /opt/vagrant_data/apache-maven-3.5.0/bin/mvn 100
 mvn -version
-echo "Finished Maven" >> /var/log/ci.log
+echo "Finished Maven." >> /var/log/ci.log
 
 
 if [ -f "/opt/vagrant_data/jira.bin" ]
@@ -79,7 +79,7 @@ sudo chmod a+x atlassian-jira-software-7.3.6-x64.bin
 
 EOF
 
-echo "Finished Jira" >> /var/log/ci.log
+echo "Finished Jira." >> /var/log/ci.log
 
 if [ -f "/opt/vagrant_data/latest-unix.tar.gz" ]
 then
@@ -91,7 +91,7 @@ fi
 
 sudo tar zxvf latest-unix.tar.gz
 sudo ./nexus-3.3.1-01/bin/nexus start
-echo "Finished Nexus" >> /var/log/ci.log
-echo "Everything is done" >> /var/log/ci.log
+echo "Finished Nexus." >> /var/log/ci.log
+echo "Everything is done." >> /var/log/ci.log
 
 cat /var/log/ci.log
